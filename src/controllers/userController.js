@@ -36,7 +36,7 @@ exports.signIn = async (req, res) => {
     const token = createToken(user._id);
 
     const cookieOptions = {
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
       httpOnly: true,
       secure: true,
       sameSite: "None",

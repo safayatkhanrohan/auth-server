@@ -14,7 +14,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://auth-client-ashen.vercel.app/",
+    origin: "https://auth-client-ashen.vercel.app",
     // origin: "http://localhost:3000",
     credentials: true,
   })

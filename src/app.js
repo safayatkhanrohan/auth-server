@@ -6,6 +6,7 @@ const cors = require("cors");
 
 const connectDB = require("./config/dbConfig");
 const userRouter = require("./routes/userRouter");
+const { errorHandler } = require("./middleware/errorHandler");
 
 const app = express();
 
@@ -13,7 +14,8 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://auth-client-41d24.web.app",
+    origin: "https://auth-client-ashen.vercel.app/",
+    // origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -23,5 +25,7 @@ app.use(cookieParser());
 
 //routes
 app.use(userRouter);
+
+app.use(errorHandler);
 
 module.exports = app;

@@ -1,6 +1,7 @@
 const { createToken } = require("../helper/jwt");
 const User = require("../model/userModel");
 const { newError } = require("../utils/error");
+const bcrypt = require("bcryptjs");
 
 // sign up user => /singup
 exports.signUp = async (req, res, next) => {
@@ -44,6 +45,7 @@ exports.signIn = async (req, res, next) => {
       success: true,
       message: "User signed in successfully",
     });
+    
   } catch (error) {
     return next(error);
   }
